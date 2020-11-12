@@ -77,10 +77,10 @@
           .then(response => response.json())
           .then(data => {
             data.slice(0, 3).forEach(release => {
-              const x = release.assets.find(
+              const releaseThing = release.assets.find(
                 asset => asset.name === "module.json"
               );
-              if (x) {
+              if (releaseThing) {
                 const releaseDetails = document.createElement("div");
                 releaseDetails.classList.add("release-details");
                 releaseHistory.appendChild(releaseDetails);
@@ -93,7 +93,7 @@
                 const downloadCount = document.createElement("div");
                 downloadCount.classList.add("download-count");
                 downloadCount.appendChild(
-                  document.createTextNode(`${zip.download_count}`)
+                  document.createTextNode(`${releaseThing.download_count}`)
                 );
                 releaseDetails.appendChild(downloadCount);
 
