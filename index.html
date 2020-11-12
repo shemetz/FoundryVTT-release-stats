@@ -77,10 +77,10 @@
           .then(response => response.json())
           .then(data => {
             data.slice(0, 3).forEach(release => {
-              const zip = release.assets.find(
-                asset => asset.content_type === "application/zip"
+              const x = release.assets.find(
+                asset => asset.name === "module.json"
               );
-              if (zip) {
+              if (x) {
                 const releaseDetails = document.createElement("div");
                 releaseDetails.classList.add("release-details");
                 releaseHistory.appendChild(releaseDetails);
