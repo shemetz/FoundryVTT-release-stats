@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Illandril's FoundryVTT Module Stats</title>
+    <title>shem's (itamarcu's) FoundryVTT Module Stats</title>
     <style>
       body {
         font-size: 14px;
@@ -54,14 +54,10 @@
     <script>
       const container = document.getElementById("stats");
       const repos = [
-        "FoundryVTT-chat-enhancements",
-        "FoundryVTT-hotbar-uses",
-        "FoundryVTT-inventory-sorter",
-        "FoundryVTT-npc-quick-actions",
-        "FoundryVTT-sheet5e-lockdown",
-        "FoundryVTT-third-pact",
-        "FoundryVTT-token-hud-scale",
-        "FoundryVTT-token-tooltips"
+        "AlternativeRotation",
+        "ZoomPanOptions",
+        "roll-from-compendium",
+        "FoundryVTT-KryxRPG"
       ];
       const fetchStats = repository => {
         const display = document.createElement("div");
@@ -77,7 +73,7 @@
         releaseHistory.classList.add("release-history");
         display.appendChild(releaseHistory);
 
-        fetch(`https://api.github.com/repos/illandril/${repository}/releases`)
+        fetch(`https://api.github.com/repos/itamarcu/${repository}/releases`)
           .then(response => response.json())
           .then(data => {
             data.slice(0, 3).forEach(release => {
