@@ -39,17 +39,20 @@
         { key: "pf2e-modifiers-matter" },
         { key: "qol-maximize-reopened-sheets" },
         { key: "one-roll-engine" },
-        { key: "FoundryVTT-KryxRPG" },
       ];
+      const systems = [
+        { key: "FoundryVTT-KryxRPG" },
+      ]
       const nameParams = `color=4b0000&style=flat-square&cacheSeconds=900`;
       const commonParams = `color=4b0000&style=flat-square&cacheSeconds=900`;
       const downloadParams = `color=d41f1f&style=flat-square&cacheSeconds=900`;
-      for (let module of modules) {
+      for (let module of [...modules, systems]) {
+        const moduleOrSystem = modules.includes(module.key) ? 'module' : 'system'
         const modContainer = document.createElement("div");
         container.appendChild(modContainer);
 
         const name = document.createElement("img");
-        name.src = `https://img.shields.io/badge/dynamic/json?${nameParams}&label=&query=%24.title&url=https%3A%2F%2Fgithub.com%2Fitamarcu%2F${module.key}%2Freleases%2Flatest%2Fdownload%2Fmodule.json`;
+        name.src = `https://img.shields.io/badge/dynamic/json?${nameParams}&label=&query=%24.title&url=https%3A%2F%2Fgithub.com%2Fitamarcu%2F${module.key}%2Freleases%2Flatest%2Fdownload%2F${moduleOrSystem}.json`;
         modContainer.appendChild(name);
 
         modContainer.appendChild(document.createElement("br"));
@@ -69,7 +72,7 @@
         modContainer.appendChild(latestDownloadCount);
 
         const forgeInstalls = document.createElement("img");
-        forgeInstalls.src = `https://img.shields.io/badge/dynamic/json?${downloadParams}&label=Forge%20Installs&query=package.installs&url=http%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fitamarcu-${module.key}&suffix=%25`;
+        forgeInstalls.src = `https://img.shields.io/badge/dynamic/json?${downloadParams}&label=Forge%20Installs&query=package.installs&url=http%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2F${module.key}&suffix=%25`;
         modContainer.appendChild(forgeInstalls);
 
         modContainer.appendChild(document.createElement("br"));
@@ -83,7 +86,7 @@
         issuesLink.appendChild(openIssues);
 
         const coreVersion = document.createElement("img");
-        coreVersion.src = `https://img.shields.io/badge/dynamic/json?${commonParams}&label=Foundry%20Version&query=%24.compatibleCoreVersion&url=https%3A%2F%2Fgithub.com%2Fitamarcu%2F${module.key}%2Freleases%2Flatest%2Fdownload%2Fmodule.json`;
+        coreVersion.src = `https://img.shields.io/badge/dynamic/json?${commonParams}&label=Foundry%20Version&query=%24.compatibleCoreVersion&url=https%3A%2F%2Fgithub.com%2Fitamarcu%2F${module.key}%2Freleases%2Flatest%2Fdownload%2F${moduleOrSystem}.json`;
         modContainer.appendChild(coreVersion);
       }
     </script>
