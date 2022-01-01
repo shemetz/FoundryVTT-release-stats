@@ -46,8 +46,8 @@
       const nameParams = `color=4b0000&style=flat-square&cacheSeconds=900`;
       const commonParams = `color=4b0000&style=flat-square&cacheSeconds=900`;
       const downloadParams = `color=d41f1f&style=flat-square&cacheSeconds=900`;
-      for (let module of [...modules, systems]) {
-        const moduleOrSystem = modules.includes(module.key) ? 'module' : 'system'
+      for (let module of [...modules, ...systems]) {
+        const moduleOrSystem = modules.includes(module) ? 'module' : 'system'
         const modContainer = document.createElement("div");
         container.appendChild(modContainer);
 
@@ -68,7 +68,7 @@
         modContainer.appendChild(document.createElement("br"));
 
         const latestDownloadCount = document.createElement("img");
-        latestDownloadCount.src = `https://img.shields.io/github/downloads/itamarcu/${module.key}/latest/module.zip?${downloadParams}&label=D&suffix=x`;
+        latestDownloadCount.src = `https://img.shields.io/github/downloads/itamarcu/${module.key}/latest/${moduleOrSystem}.zip?${downloadParams}&label=D&suffix=x`;
         modContainer.appendChild(latestDownloadCount);
 
         const forgeInstalls = document.createElement("img");
