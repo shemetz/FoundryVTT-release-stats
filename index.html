@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Shem's FoundryVTT Module Stats</title>
@@ -33,21 +33,22 @@
     <script>
       const container = document.getElementById("stats");
       const modules = [
-        { key: "AlternativeRotation" },
-        { key: "ZoomPanOptions" },
+        { key: "AlternativeRotation", foundryname: "alternative-rotation" },
+        { key: "ZoomPanOptions", foundryname: "zoom-pan-options" },
         { key: "roll-from-compendium" },
         { key: "pf2e-modifiers-matter" },
         { key: "qol-maximize-reopened-sheets" },
         { key: "one-roll-engine" },
       ];
       const systems = [
-        { key: "FoundryVTT-KryxRPG" },
+        { key: "FoundryVTT-KryxRPG", foundryname: "kryx_rpg" },
       ]
       const nameParams = `color=4b0000&style=flat-square&cacheSeconds=900`;
       const commonParams = `color=4b0000&style=flat-square&cacheSeconds=900`;
       const downloadParams = `color=d41f1f&style=flat-square&cacheSeconds=900`;
       for (let module of [...modules, ...systems]) {
         const moduleOrSystem = modules.includes(module) ? 'module' : 'system'
+        const foundryName = module.foundryname || module.key
         const modContainer = document.createElement("div");
         container.appendChild(modContainer);
 
@@ -72,7 +73,7 @@
         modContainer.appendChild(latestDownloadCount);
 
         const forgeInstalls = document.createElement("img");
-        forgeInstalls.src = `https://img.shields.io/badge/dynamic/json?${downloadParams}&label=Forge%20Installs&query=package.installs&url=http%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2F${module.key}&suffix=%25`;
+        forgeInstalls.src = `https://img.shields.io/badge/dynamic/json?${downloadParams}&label=Forge%20Installs&query=package.installs&url=http%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2F${foundryName}&suffix=%25`;
         modContainer.appendChild(forgeInstalls);
 
         modContainer.appendChild(document.createElement("br"));
