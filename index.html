@@ -59,23 +59,23 @@
         container.appendChild(modContainer);
 
         const name = document.createElement("img");
-        name.src = `https://img.shields.io/badge/dynamic/json?${nameParams}&label=&query=%24.title&url=https%3A%2F%2Fgithub.com%2Fitamarcu%2F${module.key}%2Freleases%2Flatest%2Fdownload%2F${moduleOrSystem}.json`;
+        name.src = `https://img.shields.io/badge/dynamic/json?${nameParams}&label=&query=%24.title&url=https%3A%2F%2Fgithub.com%2Fshemetz%2F${module.key}%2Freleases%2Flatest%2Fdownload%2F${moduleOrSystem}.json`;
         modContainer.appendChild(name);
 
         modContainer.appendChild(document.createElement("br"));
 
         const latestReleaseVersion = document.createElement("img");
-        latestReleaseVersion.src = `https://img.shields.io/github/v/release/itamarcu/${module.key}?${commonParams}&label=`;
+        latestReleaseVersion.src = `https://img.shields.io/github/v/release/shemetz/${module.key}?${commonParams}&label=`;
         modContainer.appendChild(latestReleaseVersion);
 
         const latestReleaseDate = document.createElement("img");
-        latestReleaseDate.src = `https://img.shields.io/github/release-date/itamarcu/${module.key}?${commonParams}&label=`;
+        latestReleaseDate.src = `https://img.shields.io/github/release-date/shemetz/${module.key}?${commonParams}&label=`;
         modContainer.appendChild(latestReleaseDate);
 
         modContainer.appendChild(document.createElement("br"));
 
         const latestDownloadCount = document.createElement("img");
-        latestDownloadCount.src = `https://img.shields.io/github/downloads/itamarcu/${module.key}/latest/${moduleOrSystem}.zip?${downloadParams}&label=D&suffix=x`;
+        latestDownloadCount.src = `https://img.shields.io/github/downloads/shemetz/${module.key}/latest/${moduleOrSystem}.zip?${downloadParams}&label=D&suffix=x`;
         modContainer.appendChild(latestDownloadCount);
 
         const forgeInstalls = document.createElement("img");
@@ -85,11 +85,11 @@
         modContainer.appendChild(document.createElement("br"));
 
         const issuesLink = document.createElement("a");
-        issuesLink.href = `https://github.com/itamarcu/${module.key}/issues`;
+        issuesLink.href = `https://github.com/shemetz/${module.key}/issues`;
         modContainer.appendChild(issuesLink);
 
         const openIssues = document.createElement("img");
-        openIssues.src = `https://img.shields.io/github/issues-raw/itamarcu/${module.key}?${commonParams}&label=Issues`;
+        openIssues.src = `https://img.shields.io/github/issues-raw/shemetz/${module.key}?${commonParams}&label=Issues`;
         issuesLink.appendChild(openIssues);
 
         const coreVersion = document.createElement("img");
